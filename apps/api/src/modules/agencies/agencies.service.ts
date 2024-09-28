@@ -1,9 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateAgencyDto } from './dto/create-agency.dto';
 import { UpdateAgencyDto } from './dto/update-agency.dto';
+import { Agency } from '~/modules/agencies/entities/agency.entity';
 
 @Injectable()
 export class AgenciesService {
+  constructor(
+    @InjectRepository(Agency)
+    private agenciesRepository: Repository<Agency>,
+  ) {}
+
   create(createAgencyDto: CreateAgencyDto) {
     return 'This action adds a new agency';
   }
