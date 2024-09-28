@@ -13,22 +13,23 @@ export class AgenciesService {
   ) {}
 
   create(createAgencyDto: CreateAgencyDto) {
-    return 'This action adds a new agency';
+    const agency = this.agenciesRepository.create(createAgencyDto);
+    return this.agenciesRepository.save(agency);
   }
 
   findAll() {
-    return `This action returns all agencies`;
+    return this.agenciesRepository.find();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} agency`;
+    return this.agenciesRepository.findOneBy({ id });
   }
 
   update(id: number, updateAgencyDto: UpdateAgencyDto) {
-    return `This action updates a #${id} agency`;
+    return this.agenciesRepository.update(id, updateAgencyDto);
   }
 
   remove(id: number) {
-    return `This action removes a #${id} agency`;
+    return this.agenciesRepository.delete(id);
   }
 }
