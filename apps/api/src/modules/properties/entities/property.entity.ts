@@ -6,12 +6,12 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { BaseEntity } from '~/common';
-import { PropertyType } from '../constants';
+// import { PropertyType } from '../constants';
 
+// @TableInheritance({
+//   column: { type: 'enum', enum: PropertyType, name: 'type' },
+// })
 @Entity()
-@TableInheritance({
-  column: { type: 'enum', enum: PropertyType, name: 'type' },
-})
 export class Property extends BaseEntity {
   @Column()
   title: string;
